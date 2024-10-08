@@ -1,0 +1,38 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="max-w-lg mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+  <div class="mb-6">
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email:</label>
+    <input type="email" id="email" formControlName="email"
+           class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500">
+    @if (submitted && contactForm.controls.email.errors) {
+      @if (contactForm.controls.email.errors['required']) {
+        <div class="mt-1 text-sm text-red-600">Email is required</div>
+      }
+      @if (contactForm.controls.email.errors['email']) {
+        <div class="mt-1 text-sm text-red-600">Invalid email format</div>
+      }
+    }
+  </div>
+
+  <div class="mb-6">
+    <label for="message" class="block mb-2 text-sm font-medium text-gray-700">Message:</label>
+    <textarea id="message" formControlName="message" rows="4"
+              class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+    @if (submitted && contactForm.controls.message.errors) {
+      @if (contactForm.controls.message.errors['required']) {
+        <div class="mt-1 text-sm text-red-600">Message is required</div>
+      }
+      @if (contactForm.controls.message.errors['maxlength']) {
+        <div class="mt-1 text-sm text-red-600">Message must be less than 300 characters</div>
+      }
+    }
+  </div>
+
+  <button type="submit"
+          class="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">
+    Envoyer
+  </button>
+
+  <div class="mt-4 text-sm text-gray-600">
+    {{ resultat }}
+  </div>
+</form>
