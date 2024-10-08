@@ -1,3 +1,16 @@
+# Tech Stack
+
+- Node.js/Express et Angular
+- Swagger
+- Collection et tests Postman
+- Data dans un fichier JSON
+- Panier avec le localstorage
+
+# Commandes
+- `npm i` dans le front et le back
+- `npm run start` dans le front
+- `npm run dev` dans le back
+
 # Consignes
 
 - Vous êtes développeur front-end : vous devez réaliser les consignes décrites dans le chapitre [Front-end](#Front-end)
